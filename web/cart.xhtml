@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Shopping cart</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandLink value="Back to the products" action="cart2index"/>
+            <h:dataTable value="#{basket.orderList}" var="oi">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantity"/>
+                    </f:facet>
+                    <h:outputText value="#{oi.qty}"/>
+                    <h:commandButton value="+" action="#{basket.incAmount(oi)}"/>
+                    <h:commandButton value="-" action="#{basket.decAmount(oi)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Artist"/>
+                    </f:facet>
+                    <h:outputText value="#{oi.product.artist}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet>
+                    <h:outputText value="#{oi.product.title}"/>
+                    <f:facet name="footer">
+                        <h:outputText value="Total price:"/>
+                    </f:facet>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Product Price"/>
+                    </f:facet>
+                    <h:outputText value="#{oi.product.price}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Item Price"/>
+                    </f:facet>
+                    <h:outputText value="#{oi.price}">
+                        <f:convertNumber maxFractionDigits="2"/>
+                    </h:outputText>
+                    <f:facet name="footer">
+                        <h:outputText value="#{basket.sumTotal}">
+                            <f:convertNumber maxFractionDigits="2"/>
+                        </h:outputText>
+                    </f:facet>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Delete"/>
+                    </f:facet>
+                    <h:commandButton value="Delete" action="#{basket.remove(oi)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

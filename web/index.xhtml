@@ -9,7 +9,7 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton value="Content of the Basket" action="index2Basket"/>
+            <h:commandButton value="Content of the Cart" action="index2cart"/>
             <h:dataTable value="#{productList.productList}" var="prod">
                 <h:column>
                     <f:facet name="header">
@@ -49,9 +49,9 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Buy"/>
+                        <h:outputText value="Order"/>
                     </f:facet>
-                    <h:commandButton value="Basket"/>
+                    <h:commandButton value="Add to Cart" action="#{basket.put(prod)}"/>
                 </h:column>
             </h:dataTable>
         </h:form>
