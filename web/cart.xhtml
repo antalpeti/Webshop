@@ -4,19 +4,19 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Shopping cart</title>
+        <title>Shopping Cart</title>
     </h:head>
     <h:body>
         <h:form>
             <h:commandLink value="Back to the products" action="cart2index"/>
-            <h:dataTable value="#{basket.orderList}" var="oi">
+            <h:dataTable value="#{cart.orderList}" var="oi">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Quantity"/>
                     </f:facet>
                     <h:outputText value="#{oi.qty}"/>
-                    <h:commandButton value="+" action="#{basket.incAmount(oi)}"/>
-                    <h:commandButton value="-" action="#{basket.decAmount(oi)}"/>
+                    <h:commandButton value="+" action="#{cart.incAmount(oi)}"/>
+                    <h:commandButton value="-" action="#{cart.decAmount(oi)}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
@@ -47,7 +47,7 @@
                         <f:convertNumber maxFractionDigits="2"/>
                     </h:outputText>
                     <f:facet name="footer">
-                        <h:outputText value="#{basket.sumTotal}">
+                        <h:outputText value="#{cart.sumTotal}">
                             <f:convertNumber maxFractionDigits="2"/>
                         </h:outputText>
                     </f:facet>
@@ -56,7 +56,10 @@
                     <f:facet name="header">
                         <h:outputText value="Delete"/>
                     </f:facet>
-                    <h:commandButton value="Delete" action="#{basket.remove(oi)}"/>
+                    <h:commandButton value="Delete" action="#{cart.remove(oi)}"/>
+                    <f:facet name="footer">
+                        <h:commandButton value="Purchase" action="#{cart.purchase()}"/>
+                    </f:facet>
                 </h:column>
             </h:dataTable>
         </h:form>

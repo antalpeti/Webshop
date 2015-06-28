@@ -22,7 +22,7 @@ import pojos.Product;
  */
 @ManagedBean
 @SessionScoped
-public class Basket {
+public class Cart {
 
     private List<Orderitem> orderList;
     private Order order;
@@ -31,9 +31,8 @@ public class Basket {
     /**
      * Creates a new instance of Basket
      */
-    public Basket() {
+    public Cart() {
         orderList = new ArrayList<Orderitem>();
-        client = new Client();
         order = new Order(client, false, new Date(), new HashSet<Orderitem>());
     }
 
@@ -60,6 +59,13 @@ public class Basket {
         } else {
             remove(oi);
         }
+    }
+    
+    public String purchase(){
+        if (client == null) {
+            return "cart2logreg";
+        }
+        return "";
     }
     
     public double getSumTotal(){
