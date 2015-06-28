@@ -1,14 +1,59 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>CD Webshop</title>
         <link rel="icon" href="/images/webpage_icon.png" type="image/png"/>
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton value="Content of the cart" action="index2Basket"/>
+            <h:commandButton value="Content of the Basket" action="index2Basket"/>
+            <h:dataTable value="#{productList.productList}" var="prod">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Artist"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.artist}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.title}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Company"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.company}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Year"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.year}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Country"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.country}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Price"/>
+                    </f:facet>
+                    <h:outputText value="#{prod.price}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Buy"/>
+                    </f:facet>
+                    <h:commandButton value="Basket"/>
+                </h:column>
+            </h:dataTable>
         </h:form>
     </h:body>
 </html>
