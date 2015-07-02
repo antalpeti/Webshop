@@ -1,5 +1,5 @@
 package pojos;
-// Generated 28-Jun-2015 19:57:24 by Hibernate Tools 3.6.0
+// Generated 02-Jul-2015 22:17:48 by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -26,14 +26,20 @@ public class Client  implements java.io.Serializable {
      private Integer id;
      private String nev;
      private String email;
+     private Boolean login;
+     private String username;
+     private String password;
      private Set<Order> orders = new HashSet<Order>(0);
 
     public Client() {
     }
 
-    public Client(String nev, String email, Set<Order> orders) {
+    public Client(String nev, String email, Boolean login, String username, String password, Set<Order> orders) {
        this.nev = nev;
        this.email = email;
+       this.login = login;
+       this.username = username;
+       this.password = password;
        this.orders = orders;
     }
    
@@ -67,6 +73,36 @@ public class Client  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    
+    @Column(name="login")
+    public Boolean getLogin() {
+        return this.login;
+    }
+    
+    public void setLogin(Boolean login) {
+        this.login = login;
+    }
+
+    
+    @Column(name="username", length=45)
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    
+    @Column(name="password", length=20)
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="client")
