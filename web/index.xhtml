@@ -16,7 +16,7 @@
                         <h:commandButton styleClass="alignleft" value="Content of the Cart" action="index2cart"/>
                     </td>
                     <td class="controlUser">
-                        <h:outputText value="#{cart.client.username}"/>
+                        <h:outputText value="#{cart.client.nev}"/>
                     </td>
                     <td class="controlLogin">
                         <h:commandLink styleClass="alignright" value="#{cart.logInOut}" action="#{cart.findClient(constants.index, constants.login)}"/><br/>

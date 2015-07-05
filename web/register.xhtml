@@ -3,11 +3,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Register</title>
+        <title>Registration</title>
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton value="Register"/>
+            <table>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Fullname:" for="fullname" />
+                    </td>
+                    <td>
+                        <h:inputText value="#{cart.client.nev}" id="fullname"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="E-mail" for="email" />
+                    </td>
+                    <td>
+                        <h:inputText value="#{cart.client.email}" id="email"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputLabel value="Username:" for="username"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{cart.client.username}" id="username"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="Password:"/>
+                    </td>
+                    <td>
+                        <h:inputSecret id="password" value="#{cart.client.password}"/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h:commandButton value="Register"/>
+                    </td>
+                </tr>
+            </table>
         </h:form>
     </h:body>
 </html>
