@@ -17,14 +17,22 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Constants {
     
-    private String login = "login";
-    private String index = "index";
-    private String logreg = "logreg";
-    private String cart = "cart";
+    private final String login;
+    private final String index;
+    private final String cart;
+    private final String register;
+
+    public String getRegister() {
+        return register;
+    }
     /**
      * Creates a new instance of Constants
      */
     public Constants() {
+        this.login = "login";
+        this.cart = "cart";
+        this.index = "index";
+        this.register = "register";
     }
 
     public String getLogin() {
@@ -33,10 +41,6 @@ public class Constants {
 
     public String getIndex() {
         return index;
-    }
-
-    public String getLogreg() {
-        return logreg;
     }
 
     public String getCart() {

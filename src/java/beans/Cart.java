@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.apache.catalina.util.ParameterMap;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import pojos.Client;
@@ -32,6 +30,7 @@ public class Cart {
     private Order order;
     private Client client;
     private Client loginData;
+    private Constants constants;
     private String logInOut = LOGIN;
     public static final String LOGIN = "Login";
     public static final String LOGOUT = "Logout";
@@ -42,6 +41,7 @@ public class Cart {
     public Cart() {
         orderList = new ArrayList<Orderitem>();
         loginData = new Client();
+        constants = new Constants();
         order = new Order(client, false, new Date(), new HashSet<Orderitem>());
     }
 
@@ -74,7 +74,7 @@ public class Cart {
                 return navigatePage(startPage, endPage);
             }
         } else {
-            return navigatePage(startPage, "login");
+            return navigatePage(startPage, constants.getLogin());
         }
     }
     
@@ -85,8 +85,7 @@ public class Cart {
             session.save(loginData);
             session.getTransaction().commit();
             session.close();
-            findClient();
-            return navigatePage("register", "index");
+            return logInOut(constants.getRegister(),constants.getIndex());
         }
         return "";
     }
@@ -103,7 +102,7 @@ public class Cart {
         Orderitem oi = new Orderitem(order, product, 1, product.getPrice());
         orderList.add(oi);
 
-        return "index2cart";
+        return constants.getIndex() + "2" + constants.getCart();
     }
 
     public void remove(Orderitem oi) {
@@ -126,7 +125,7 @@ public class Cart {
 
     public String purchase() {
         if (client == null) {
-            return "cart2logreg";
+            return constants.getCart() + "2" + constants.getLogin();
         }
         return "";
     }
