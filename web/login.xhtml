@@ -11,15 +11,15 @@
             <table>
                 <tr>
                     <td><h:outputText value="Username:"/></td>
-                    <td><h:inputText id="username"/></td>
+                    <td><h:inputText id="username" value="#{cart.username}"/></td>
                 </tr>
                 <tr>
                     <td><h:outputText value="Password:"/></td>
-                    <td><h:inputSecret id="password"/></td>
+                    <td><h:inputSecret id="password" value="#{cart.password}"/></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h:commandButton value="Login"/>
+                        <h:commandButton value="Login" action="#{cart.findClient()}"/>
                     </td>
                 </tr>
             </table>

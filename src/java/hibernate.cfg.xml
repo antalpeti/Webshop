@@ -7,6 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/webshop?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="pojos.Client"/>
     <mapping class="pojos.Orderitem"/>
     <mapping class="pojos.Product"/>
