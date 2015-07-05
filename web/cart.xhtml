@@ -19,7 +19,7 @@
                         <h:outputText value="#{cart.client.username}"/>
                     </td>
                     <td class="controlLogin">
-                        <h:commandLink styleClass="alignright" value="#{cart.logInOut}" />
+                        <h:commandLink styleClass="alignright" value="#{cart.logInOut}" action="#{cart.findClient(constants.cart,constants.login)}" />
                     </td>
                 </tr>
             </table>

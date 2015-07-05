@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.apache.catalina.util.ParameterMap;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import pojos.Client;
@@ -31,7 +33,9 @@ public class Cart {
     private Client client;
     private String username;
     private String password;
-    private String logInOut = "Login";
+    private String logInOut = LOGIN;
+    public static final String LOGIN = "Login";
+    public static final String LOGOUT = "Logout";
 
     /**
      * Creates a new instance of Basket
@@ -41,7 +45,7 @@ public class Cart {
         order = new Order(client, false, new Date(), new HashSet<Orderitem>());
     }
 
-    public String findClient() {
+    public String findClient(String startPage, String endPage) {
         if (username != null || password != null) {
             Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
             List<Client> clients;
@@ -55,19 +59,25 @@ public class Cart {
             session.close();
         }
         if (client != null) {
-            logInOut = "Logout";
-            return "login2cart";
+            if (logInOut.equals(LOGOUT)) {
+                client = null;
+                logInOut = LOGIN;
+                return "";
+            } else {
+                logInOut = LOGOUT;
+                return navigatePage(startPage, endPage);
+            }
         } else {
-            return "login2login";
+            return navigatePage(startPage, "login");
         }
     }
-    
+
+    public String navigatePage(String startPage, String endPage) {
+        return startPage + "2" + endPage;
+    }
+
     public void registerClient(Client client) {
 
-    }
-    
-    public void logOut(){
-        logInOut = "Login";
     }
 
     public String put(Product product) {

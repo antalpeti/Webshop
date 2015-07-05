@@ -6,41 +6,38 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>index2cart</from-outcome>
-            <to-view-id>/cart.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>index2login</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index2cart</from-outcome>
+            <to-view-id>/cart.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/cart.xhtml</from-view-id>
         <navigation-case>
+            <from-outcome>cart2login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>cart2index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>cart2logreg</from-outcome>
-            <to-view-id>/logreg.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/logreg.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>logreg2login</from-outcome>
-            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>login2cart</from-outcome>
-            <to-view-id>/cart.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>login2login</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login2index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login2register</from-outcome>
+            <to-view-id>/register.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

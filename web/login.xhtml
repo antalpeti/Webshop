@@ -19,7 +19,8 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h:commandButton value="Login" action="#{cart.findClient()}"/>
+                        <h:commandButton value="Login" action="#{cart.findClient(constants.login,constants.index)}"/>
+                        <h:commandLink value="Register" action="login2register"/>
                     </td>
                 </tr>
             </table>
