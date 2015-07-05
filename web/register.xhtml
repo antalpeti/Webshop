@@ -13,7 +13,7 @@
                         <h:outputLabel value="Fullname:" for="fullname" />
                     </td>
                     <td>
-                        <h:inputText value="#{cart.client.nev}" id="fullname"/><br/>
+                        <h:inputText value="#{cart.loginData.nev}" id="fullname"/><br/>
                     </td>
                 </tr>
                 <tr>
@@ -21,7 +21,7 @@
                         <h:outputLabel value="E-mail" for="email" />
                     </td>
                     <td>
-                        <h:inputText value="#{cart.client.email}" id="email"/><br/>
+                        <h:inputText value="#{cart.loginData.email}" id="email"/><br/>
                     </td>
                 </tr>
                 <tr>
@@ -29,7 +29,7 @@
                         <h:outputLabel value="Username:" for="username"/>
                     </td>
                     <td>
-                        <h:inputText value="#{cart.client.username}" id="username"/><br/>
+                        <h:inputText value="#{cart.loginData.username}" id="username"/><br/>
                     </td>
                 </tr>
                 <tr>
@@ -37,12 +37,12 @@
                         <h:outputText value="Password:"/>
                     </td>
                     <td>
-                        <h:inputSecret id="password" value="#{cart.client.password}"/><br/>
+                        <h:inputSecret id="password" value="#{cart.loginData.password}"/><br/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h:commandButton value="Register"/>
+                        <h:commandButton value="Register" action="#{cart.register()}"/>
                     </td>
                 </tr>
             </table>

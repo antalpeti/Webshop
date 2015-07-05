@@ -31,8 +31,7 @@ public class Cart {
     private List<Orderitem> orderList;
     private Order order;
     private Client client;
-    private String username;
-    private String password;
+    private Client loginData;
     private String logInOut = LOGIN;
     public static final String LOGIN = "Login";
     public static final String LOGOUT = "Logout";
@@ -42,21 +41,28 @@ public class Cart {
      */
     public Cart() {
         orderList = new ArrayList<Orderitem>();
+        loginData = new Client();
         order = new Order(client, false, new Date(), new HashSet<Orderitem>());
     }
 
-    public String findClient(String startPage, String endPage) {
-        if (username != null || password != null) {
+    public void findClient() {
+        if (loginData.getUsername() != null || loginData.getPassword() != null) {
             Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
             List<Client> clients;
             Query query = session.createQuery("FROM Client WHERE username =:username AND password =:password");
-            query.setParameter("username", username);
-            query.setParameter("password", password);
+            query.setParameter("username", loginData.getUsername());
+            query.setParameter("password", loginData.getPassword());
             clients = query.list();
             if (clients.size() > 0) {
                 client = clients.get(0);
             }
             session.close();
+        }
+    }
+    
+    public String logInOut(String startPage, String endPage){
+        if (client == null && loginData.getUsername() != null && loginData.getPassword() != null) {
+            findClient();
         }
         if (client != null) {
             if (logInOut.equals(LOGOUT)) {
@@ -70,6 +76,19 @@ public class Cart {
         } else {
             return navigatePage(startPage, "login");
         }
+    }
+    
+    public String register(){
+        if(loginData.getNev() != null && loginData.getEmail() != null && loginData.getUsername() != null && loginData.getPassword() != null){
+            Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(loginData);
+            session.getTransaction().commit();
+            session.close();
+            findClient();
+            return navigatePage("register", "index");
+        }
+        return "";
     }
 
     public String navigatePage(String startPage, String endPage) {
@@ -144,27 +163,19 @@ public class Cart {
         this.client = client;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getLogInOut() {
         return logInOut;
     }
 
     public void setLogInOut(String logInOut) {
         this.logInOut = logInOut;
+    }
+
+    public Client getLoginData() {
+        return loginData;
+    }
+
+    public void setLoginData(Client loginData) {
+        this.loginData = loginData;
     }
 }
