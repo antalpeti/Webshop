@@ -6,11 +6,26 @@
     <h:head>
         <title>CD Webshop</title>
         <link rel="icon" href="/images/webpage_icon.png" type="image/png"/>
+        <link rel="stylesheet" href="#{request.contextPath}/styles/pages.css" type="text/css"/>
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton value="Content of the Cart" action="index2cart"/>
-            <h:dataTable value="#{productList.productList}" var="prod">
+            <table class="controlTable">
+                <tr>
+                    <td class="controlNavigation">
+                        <h:commandButton styleClass="alignleft" value="Content of the Cart" action="index2cart"/>
+                    </td>
+                    <td class="controlUser">
+                        <h:outputText value="#{cart.client.username}"/>
+                    </td>
+                    <td class="controlLogin">
+                        <h:commandLink styleClass="alignright" value="#{cart.logInOut}" action="index2login"/><br/>
+                    </td>
+                </tr>
+            </table>
+            <h:dataTable styleClass="productTable" headerClass="productTableHeader" 
+                         rowClasses="productTableOddRow,productTableEvenRow" 
+                         value="#{productList.productList}" var="prod">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Artist"/>

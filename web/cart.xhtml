@@ -5,11 +5,31 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Shopping Cart</title>
+        <link rel="icon" href="/images/webpage_icon.png" type="image/png"/>
+        <link rel="stylesheet" href="#{request.contextPath}/styles/pages.css" type="text/css"/>
     </h:head>
     <h:body>
         <h:form>
-            <h:commandLink value="Back to the products" action="cart2index"/>
-            <h:dataTable value="#{cart.orderList}" var="oi">
+            <table class="controlTable">
+                <tr>
+                    <td class="controlNavigation">
+                        <h:commandButton styleClass="alignleft" value="Back to the products" action="cart2index"/>
+                    </td>
+                    <td class="controlUser">
+                        <h:outputText value="#{cart.client.username}"/>
+                    </td>
+                    <td class="controlLogin">
+                        <h:commandLink styleClass="alignright" value="#{cart.logInOut}" />
+                    </td>
+                </tr>
+            </table>
+            <h:dataTable styleClass="cartTable" headerClass="cartTableHeader"
+                         rowClasses="cartTableOddRow,cartTableEvenRow"
+                         footerClass="cartTableFooter"
+                         value="#{cart.orderList}" var="oi">
+                <f:facet name="header">
+                    <h:outputText value="Your Shopping Cart" />
+                </f:facet>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Quantity"/>

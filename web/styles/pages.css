@@ -1,0 +1,88 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-Jul-2015, 19:02:40
+    Author     : Peti
+*/
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+
+.productTable {
+    width: 50%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+}
+
+.productTableHeader{
+    text-align:center;
+    background:none repeat scroll 0 0 #B5B5B5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.productTableOddRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.productTableEvenRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #D3D3D3;
+}
+
+.cartTable {
+    width: 50%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+}
+
+.cartTableHeader{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.cartTableFooter{
+    text-align:center;
+    font-weight: bold;
+    background:none repeat scroll 0 0 #A5A5A5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.cartTableOddRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.cartTableEvenRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #E3E3E3;
+}
+
+.controlTable{
+    width: 50%;
+}
+
+.controlNavigation{
+    width: 30%;
+    text-align: left;
+}
+
+.controlUser{
+    width: 30%;
+    text-align: center;
+}
+
+.controlLogin{
+    width: 30%;
+    text-align: right;
+}

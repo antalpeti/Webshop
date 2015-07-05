@@ -31,6 +31,7 @@ public class Cart {
     private Client client;
     private String username;
     private String password;
+    private String logInOut = "Login";
 
     /**
      * Creates a new instance of Basket
@@ -54,14 +55,19 @@ public class Cart {
             session.close();
         }
         if (client != null) {
+            logInOut = "Logout";
             return "login2cart";
         } else {
             return "login2login";
         }
     }
-
+    
     public void registerClient(Client client) {
 
+    }
+    
+    public void logOut(){
+        logInOut = "Login";
     }
 
     public String put(Product product) {
@@ -144,4 +150,11 @@ public class Cart {
         this.password = password;
     }
 
+    public String getLogInOut() {
+        return logInOut;
+    }
+
+    public void setLogInOut(String logInOut) {
+        this.logInOut = logInOut;
+    }
 }
