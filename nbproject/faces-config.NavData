@@ -2,10 +2,10 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="login.xhtml" x="150" y="150" zoom="true"/>
-        <Node id="logreg.xhtml" x="650" y="150" zoom="true"/>
-        <Node id="index.xhtml" x="400" y="150" zoom="true"/>
-        <Node id="cart.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="login.xhtml" x="751" y="32" zoom="true"/>
+        <Node id="index.xhtml" x="514" y="32" zoom="true"/>
+        <Node id="register.xhtml" x="263" y="32" zoom="true"/>
+        <Node id="cart.xhtml" x="34" y="32" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

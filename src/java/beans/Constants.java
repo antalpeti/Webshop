@@ -10,7 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 /**
- *
+ * Store some constants to help the page navigation.
  * @author Peti
  */
 @ManagedBean
