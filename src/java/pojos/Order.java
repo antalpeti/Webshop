@@ -100,9 +100,10 @@ public class Order  implements java.io.Serializable {
         this.orderitems = orderitems;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", client=" + client + ", teljesitve=" + teljesitve + ", datum=" + datum + ", orderitems=" + orderitems + '}';
+    }
 }
 
 

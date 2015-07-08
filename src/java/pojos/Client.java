@@ -107,9 +107,10 @@ public class Client  implements java.io.Serializable {
         this.orders = orders;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", nev=" + nev + ", email=" + email + ", username=" + username + ", password=" + password + ", orders=" + orders + '}';
+    }
 }
 
 

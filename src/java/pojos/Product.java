@@ -126,9 +126,10 @@ public class Product  implements java.io.Serializable {
         this.orderitems = orderitems;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", title=" + title + ", artist=" + artist + ", year=" + year + ", country=" + country + ", company=" + company + ", price=" + price + ", orderitems=" + orderitems + '}';
+    }
 }
 
 

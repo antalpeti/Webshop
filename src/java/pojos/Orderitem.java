@@ -95,9 +95,10 @@ public class Orderitem  implements java.io.Serializable {
         this.price = price;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Orderitem{" + "id=" + id + ", order=" + order + ", product=" + product + ", qty=" + qty + ", price=" + price + '}';
+    }
 }
 
 
