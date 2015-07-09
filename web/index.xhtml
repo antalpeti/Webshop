@@ -15,6 +15,14 @@
                     <td class="controlNavigation">
                         <h:commandButton styleClass="alignleft" value="Content of the Cart" action="index2cart"/>
                     </td>
+                    <td class="controlFilterText">
+                        <h:selectOneMenu value="#{productList.actCountry}">
+                            <f:selectItems value="#{productList.countrySet}" var="cou" itemLabel="#{cou}" itemValue="#{cou}" />
+                        </h:selectOneMenu>
+                    </td>
+                   <td class="controlFilterButton">
+                        <h:commandButton value="Filter" action="#{productList.filterCountry()}"/>
+                    </td>
                     <td class="controlUser">
                         <h:outputText value="#{cart.client.nev}"/>
                     </td>

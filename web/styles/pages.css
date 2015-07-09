@@ -72,17 +72,17 @@ and open the template in the editor.
     width: 50%;
 }
 
-.controlNavigation{
-    width: 30%;
+.controlNavigation,.controlFilterButton{
+    width: 25%;
     text-align: left;
 }
 
 .controlUser{
-    width: 30%;
+    width: 25%;
     text-align: center;
 }
 
-.controlLogin{
-    width: 30%;
+.controlLogin,.controlFilterText{
+    width: 25%;
     text-align: right;
 }
